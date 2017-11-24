@@ -2,16 +2,23 @@ const express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(express.static(__dirname));
 const request = require('request');
 
+app.use(express.static(__dirname));
 // Process application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
     extended: true
-}))
+}));
+
+app.set('port', (process.env.PORT || 5000));
+
+// Index route
+app.get('/', function (req, res) {
+    res.send('Hello world, I am a chat bot')
+});
 
 // for Facebook verification
-app.get('/webhook/', function (req, res) {
+app.get('/webhook', function (req, res) {
     const hubChallenge = req.query['hub.challenge'];
 
     const hubMode = req.query['hub.mode'];
@@ -24,7 +31,7 @@ app.get('/webhook/', function (req, res) {
     }
 });
 
-app.post('/check/', function (req, res) {
+app.post('/check', function (req, res) {
     let messaging_events = req.body.entry[0].messaging
     for (let i = 0; i < messaging_events.length; i++) {
         let event = req.body.entry[0].messaging[i]
@@ -61,6 +68,7 @@ function sendTextMessage(sender, text) {
 app.get('/', function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });
-app.listen('3000', function () {
-    console.log('running on 3000...');
-});
+// Spin up the server
+app.listen(app.get('port'), function() {
+    console.log('running on port', app.get('port'))
+})
