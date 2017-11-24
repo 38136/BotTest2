@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-brand">Facebook Test Automation</div>
+        </div>
+    </nav>
+    <div class="container">
+        <div>
+            <form id="uploadForm" enctype="multipart/form-data" action="upload" method="post">
+                <input type="file" name="file" />Upload
+                <input type="submit" value="Upload" name="submit">
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <form id="story-form">
+                            <div class="form-group">
+                                <label>Uttrance </label>
+                                <input autofocus class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label> Expected Response </label>
+                                <textarea rows="3" class="form-control"></textarea>
+                            </div>
+                            <button class="btn btn-primary">TEST</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div id="all-stories" class="panel panel-default">
+            <div class="panel-heading"> Result </div>
+            <div class="panel-body">
+                <div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Uttarance</th>
+                                <th>Expected Response</th>
+                                <th>Actual Response</th>
+                                <th>Status</th>
+                                <th>Time Taken </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                            </tr>
+                            <tr>
+
+                            </tr>
+                            <tr>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
